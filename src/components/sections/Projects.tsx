@@ -1,6 +1,6 @@
  "use client";
 
-import { motion } from "framer-motion";
+ import { motion, Variants } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
 
 type Project = {
@@ -42,13 +42,17 @@ const projects: Project[] = [
   },
 ];
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { staggerChildren: 0.09, duration: 0.5 },
-  },
+    transition: {
+      staggerChildren: 0.2,
+      duration: 0.5,
+      ease: [0.42, 0, 0.58, 1]
+    }
+  }
 };
 
 const cardVariants = {

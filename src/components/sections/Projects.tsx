@@ -50,9 +50,9 @@ const containerVariants: Variants = {
     transition: {
       staggerChildren: 0.2,
       duration: 0.5,
-      ease: [0.42, 0, 0.58, 1],
-    },
-  },
+      ease: [0.42, 0, 0.58, 1] as const
+    }
+  }
 };
 
 export default function Projects() {

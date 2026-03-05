@@ -1,9 +1,6 @@
-<<<<<<< HEAD
-const containerVariants = {
-=======
- "use client";
+"use client";
 
- import { motion, Variants } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
 
 type Project = {
@@ -46,7 +43,6 @@ const projects: Project[] = [
 ];
 
 const containerVariants: Variants = {
->>>>>>> e37c082 (fix framer motion types)
   hidden: { opacity: 0, y: 20 },
   show: {
     opacity: 1,
@@ -54,7 +50,61 @@ const containerVariants: Variants = {
     transition: {
       staggerChildren: 0.2,
       duration: 0.5,
-      ease: [0.42, 0, 0.58, 1]
-    }
-  }
+      ease: [0.42, 0, 0.58, 1],
+    },
+  },
 };
+
+export default function Projects() {
+  return (
+    <section id="projects" className="py-20">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.25 }}
+        className="grid md:grid-cols-2 gap-8"
+      >
+        {projects.map((project, index) => (
+          <motion.div
+            key={index}
+            className="p-6 rounded-xl border bg-white shadow-md"
+          >
+            <h3 className="text-xl font-semibold">{project.name}</h3>
+            <p className="text-sm text-gray-500 mb-2">{project.label}</p>
+
+            <p className="text-gray-700 mb-3">{project.description}</p>
+
+            <p className="text-sm font-medium mb-2">
+              Tech: {project.tech}
+            </p>
+
+            <ul className="list-disc ml-5 text-sm mb-4">
+              {project.features.map((feature, i) => (
+                <li key={i}>{feature}</li>
+              ))}
+            </ul>
+
+            <div className="flex gap-4">
+              <a
+                href={project.github}
+                target="_blank"
+                className="flex items-center gap-2 text-blue-600"
+              >
+                <Github size={18} /> Code
+              </a>
+
+              <a
+                href={project.github}
+                target="_blank"
+                className="flex items-center gap-2 text-blue-600"
+              >
+                <ExternalLink size={18} /> Demo
+              </a>
+            </div>
+          </motion.div>
+        ))}
+      </motion.div>
+    </section>
+  );
+}

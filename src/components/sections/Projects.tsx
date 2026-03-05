@@ -1,6 +1,6 @@
- "use client";
+"use client";
 
- import { motion, Variants } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
 
 type Project = {
@@ -17,12 +17,12 @@ const projects: Project[] = [
     name: "Grade Shastra",
     label: "Educational resource hub",
     description:
-      "A centralized hub for university students to access study materials, previous year question papers, and curated resources.",
-    tech: "MERN Stack (MongoDB, Express, React, Node.js)",
+      "A centralized hub for university students to access study materials and previous year question papers.",
+    tech: "MERN Stack",
     features: [
-      "Secure authentication and role-based access",
-      "Organized study materials and PYQs",
-      "Student upload system with moderation",
+      "Secure authentication",
+      "Study material repository",
+      "Student uploads with moderation"
     ],
     github: "https://github.com/vanshikadahaliya/grade-shastra",
   },
@@ -30,12 +30,12 @@ const projects: Project[] = [
     name: "Blockchain Scholarship Tracking System",
     label: "Transparent NGO scholarships",
     description:
-      "A blockchain-powered platform for NGOs to manage and track scholarship distribution with complete donor transparency.",
-    tech: "Solidity, Hardhat, Next.js, Ethers.js",
+      "Blockchain-based system for tracking scholarship distribution with transparency.",
+    tech: "Solidity, Hardhat, Next.js",
     features: [
-      "Smart contracts for scholarship lifecycle",
-      "On-chain donor and beneficiary transparency",
-      "Audit-friendly blockchain ledger for payouts",
+      "Smart contract management",
+      "Transparent donor tracking",
+      "Blockchain ledger"
     ],
     github:
       "https://github.com/vanshikadahaliya/blockchain-scholarship-tracking",
@@ -50,106 +50,47 @@ const containerVariants: Variants = {
     transition: {
       staggerChildren: 0.2,
       duration: 0.5,
-      ease: [0.42, 0, 0.58, 1]
-    }
-  }
+      ease: [0.42, 0, 0.58, 1],
+    },
+  },
 };
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 20, scale: 0.98 },
-  show: { opacity: 1, y: 0, scale: 1 },
-};
-
-export function ProjectsSection() {
+export default function Projects() {
   return (
-    <section
-      id="projects"
-      className="scroll-mt-24 border-t border-slate-900/80 pt-10 md:pt-14"
-    >
-      <div className="mx-auto max-w-5xl space-y-6">
-        <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
-          <div>
-            <h2 className="text-lg font-semibold tracking-tight text-slate-50 md:text-xl">
-              Projects
-            </h2>
-            <p className="mt-1 text-sm text-slate-400 md:text-[15px]">
-              A selection of work across education, transparency, and developer
-              tooling with a focus on real-world impact.
-            </p>
-          </div>
-          <p className="mt-2 text-xs font-medium uppercase tracking-[0.22em] text-slate-500 md:mt-0">
-            MERN • Blockchain • Flask
-          </p>
-        </div>
+    <section id="projects" className="py-20">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.25 }}
+        className="grid md:grid-cols-2 gap-8"
+      >
+        {projects.map((project, index) => (
+          <motion.div
+            key={index}
+            className="p-6 rounded-xl border bg-white shadow-md"
+          >
+            <h3 className="text-xl font-semibold">{project.name}</h3>
+            <p className="text-gray-500 text-sm">{project.label}</p>
+            <p className="mt-2 text-gray-700">{project.description}</p>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.25 }}
-          className="grid gap-5 md:grid-cols-2"
-        >
-          {projects.map((project) => (
-            <motion.article
-              key={project.name}
-              variants={cardVariants}
-              whileHover={{ y: -6 }}
-              transition={{ type: "spring", stiffness: 220, damping: 24 }}
-              className="group flex h-full flex-col justify-between rounded-2xl border border-slate-800/90 bg-slate-900/70 p-4 shadow-[0_18px_60px_rgba(15,23,42,0.85)]"
-            >
-              <div className="space-y-3">
-                <div className="flex items-start justify-between gap-2">
-                  <div>
-                    <h3 className="text-sm font-semibold text-slate-50">
-                      {project.name}
-                    </h3>
-                    <p className="text-xs font-medium text-indigo-300/90">
-                      {project.label}
-                    </p>
-                  </div>
-                  <span className="rounded-full bg-slate-800 px-2 py-1 text-[10px] font-medium uppercase tracking-[0.18em] text-slate-400">
-                    Featured
-                  </span>
-                </div>
+            <ul className="mt-3 list-disc ml-5 text-sm">
+              {project.features.map((f, i) => (
+                <li key={i}>{f}</li>
+              ))}
+            </ul>
 
-                <p className="text-xs text-slate-400">{project.description}</p>
-
-                <p className="text-[11px] font-medium text-slate-300">
-                  Tech:{" "}
-                  <span className="font-normal text-slate-400">
-                    {project.tech}
-                  </span>
-                </p>
-
-                <ul className="mt-2 space-y-1.5 text-[11px] text-slate-400">
-                  {project.features.map((feature) => (
-                    <li key={feature}>• {feature}</li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="mt-4 flex items-center justify-between gap-2">
-                <div className="flex gap-2">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 rounded-full border border-slate-700 bg-slate-900/70 px-3 py-1.5 text-[11px] font-medium text-slate-100 transition-colors hover:border-slate-500 hover:bg-slate-800"
-                  >
-                    <Github className="h-3.5 w-3.5" aria-hidden="true" />
-                    GitHub
-                  </a>
-                </div>
-
-                <span className="text-[10px] text-slate-500">
-                  Code &amp; docs available
-                </span>
-              </div>
-            </motion.article>
-          ))}
-        </motion.div>
-      </div>
+            <div className="flex gap-4 mt-4">
+              <a href={project.github} target="_blank">
+                <Github size={18} />
+              </a>
+              <a href={project.github} target="_blank">
+                <ExternalLink size={18} />
+              </a>
+            </div>
+          </motion.div>
+        ))}
+      </motion.div>
     </section>
   );
 }
-

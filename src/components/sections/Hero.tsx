@@ -79,11 +79,6 @@ export function Hero() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="flex-1 space-y-6"
         >
-          <p className="inline-flex items-center gap-2 rounded-full border border-indigo-500/30 bg-indigo-500/10 px-3 py-1 text-xs font-medium text-indigo-200 backdrop-blur">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-            Available for internships & open source
-          </p>
-
           <div className="space-y-3">
             <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl">
               Hi, I&apos;m{" "}
@@ -174,10 +169,6 @@ export function Hero() {
                   Actively solving DSA, contributing to open source, and
                   building production-grade MERN and blockchain projects.
                 </p>
-                <div className="mt-2 inline-flex items-center gap-2 rounded-full bg-emerald-500/10 px-3 py-1 text-[11px] font-medium text-emerald-300">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                  Open to internships & collaborations
-                </div>
               </div>
             </div>
           </div>

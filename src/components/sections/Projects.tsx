@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
+import { Github } from "lucide-react";
 
 type Project = {
   name: string;
@@ -24,7 +24,7 @@ const projects: Project[] = [
       "Study material repository",
       "Student uploads with moderation"
     ],
-    github: "https://github.com/vanshikadahaliya/grade-shastra",
+    github: "https://github.com/Vanshikadahaliya/grade_shastra",
   },
   {
     name: "Blockchain Scholarship Tracking System",
@@ -37,8 +37,7 @@ const projects: Project[] = [
       "Transparent donor tracking",
       "Blockchain ledger"
     ],
-    github:
-      "https://github.com/vanshikadahaliya/blockchain-scholarship-tracking",
+    github: "https://github.com/Vanshikadahaliya/ScholarChain",
   },
 ];
 
@@ -55,37 +54,43 @@ const containerVariants: Variants = {
   }
 };
 
-export default function Projects() {
-  return (
+export default function ProjectsSection() {  return (
     <section id="projects" className="py-20">
+      <div className="mb-10 px-4 sm:px-6 lg:px-0">
+        <h2 className="text-3xl font-semibold text-slate-100">Projects</h2>
+      </div>
+
       <motion.div
         variants={containerVariants}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.25 }}
-        className="grid md:grid-cols-2 gap-8"
+        className="grid md:grid-cols-2 gap-8 px-4 sm:px-6 lg:px-0"
       >
         {projects.map((project, index) => (
           <motion.div
             key={index}
-            className="p-6 rounded-xl border bg-white shadow-md"
+            className="p-6 rounded-xl border border-slate-800 bg-slate-950 shadow-md"
           >
-            <h3 className="text-xl font-semibold">{project.name}</h3>
-            <p className="text-gray-500 text-sm">{project.label}</p>
-            <p className="mt-2 text-gray-700">{project.description}</p>
+            <h3 className="text-xl font-semibold text-slate-100">{project.name}</h3>
+            <p className="text-slate-400 text-sm">{project.label}</p>
+            <p className="mt-2 text-slate-300">{project.description}</p>
 
-            <ul className="mt-3 list-disc ml-5 text-sm">
+            <ul className="mt-3 list-disc ml-5 text-sm text-slate-400">
               {project.features.map((f, i) => (
                 <li key={i}>{f}</li>
               ))}
             </ul>
 
             <div className="flex gap-4 mt-4">
-              <a href={project.github} target="_blank">
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-slate-950 text-slate-100 transition-colors hover:bg-slate-800"
+                aria-label={`${project.name} GitHub repository`}
+              >
                 <Github size={18} />
-              </a>
-              <a href={project.github} target="_blank">
-                <ExternalLink size={18} />
               </a>
             </div>
           </motion.div>

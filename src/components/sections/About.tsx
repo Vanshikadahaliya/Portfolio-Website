@@ -17,9 +17,6 @@ export function AboutSection() {
               blockchain products with a strong problem-solving mindset.
             </p>
           </div>
-          <p className="mt-2 text-xs font-medium uppercase tracking-[0.22em] text-slate-500 md:mt-0">
-            Full Stack • Blockchain • Open Source
-          </p>
         </div>
 
         <div className="grid gap-4 md:grid-cols-[2fr,3fr]">

@@ -3,7 +3,7 @@ import { Navbar } from "@/components/Navbar";
 import { AboutSection } from "@/components/sections/About";
 import { ContactSection } from "@/components/sections/Contact";
 import { Hero } from "@/components/sections/Hero";
-import { ProjectsSection } from "@/components/sections/Projects";
+import ProjectsSection from "@/components/sections/Projects";
 import { SkillsSection } from "@/components/sections/Skills";
 
 export default function Home() {

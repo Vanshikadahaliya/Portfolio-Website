@@ -1,99 +1,65 @@
-import { Boxes, Code2, Database, GitBranch, Wrench } from "lucide-react";
+import {
+  Box,
+  Code2,
+  Database,
+  Layout,
+  Layers,
+  Server,
+  Zap,
+  GitBranch,
+} from "lucide-react";
 
-const skills = {
-  frontend: ["HTML", "CSS", "JavaScript", "React", "Next.js"],
-  backend: ["Node.js", "Express.js"],
-  database: ["MongoDB", "MySQL"],
-  blockchain: ["Solidity", "Hardhat"],
-  tools: ["Git", "GitHub", "VS Code", "Docker"],
-};
+const skillCards = [
+  { name: "HTML", Icon: Code2, accent: "text-amber-400" },
+  { name: "CSS", Icon: Layout, accent: "text-sky-400" },
+  { name: "JavaScript", Icon: Zap, accent: "text-amber-300" },
+  { name: "React", Icon: Box, accent: "text-cyan-400" },
+  { name: "Next.js", Icon: Server, accent: "text-white" },
+  { name: "Node.js", Icon: Database, accent: "text-emerald-400" },
+  { name: "MongoDB", Icon: GitBranch, accent: "text-emerald-400" },
+  { name: "Solidity", Icon: Layers, accent: "text-violet-400" },
+  { name: "Docker", Icon: Layers, accent: "text-sky-500" },
+];
 
 export function SkillsSection() {
-  const chipBase =
-    "inline-flex items-center rounded-full bg-slate-900/70 px-3 py-1 text-[11px] text-slate-200 border border-slate-800";
+  const marqueeCards = [...skillCards, ...skillCards];
 
   return (
     <section
       id="skills"
-      className="scroll-mt-24 border-t border-slate-900/80 pt-10 md:pt-14"
+      className="scroll-mt-24 pt-16 pb-20 md:pt-20 md:pb-24"
     >
-      <div className="mx-auto max-w-5xl space-y-6">
-        <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
-          <div>
-            <h2 className="text-lg font-semibold tracking-tight text-slate-50 md:text-xl">
-              Skills
-            </h2>
-            <p className="mt-1 text-sm text-slate-400 md:text-[15px]">
-              A stack focused on shipping full stack, production-ready web and
-              blockchain applications.
-            </p>
-          </div>
-          <p className="mt-2 text-xs font-medium uppercase tracking-[0.22em] text-slate-500 md:mt-0">
-            End-to-End Product Mindset
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-0">
+        <div className="relative mb-12 flex items-center justify-center">
+          <span className="absolute left-0 right-0 h-px bg-slate-800/90" />
+          <span className="relative z-10 rounded-full bg-slate-950/80 px-6 py-2 text-sm font-semibold uppercase tracking-[0.35em] text-slate-100 shadow-sm shadow-slate-950/30">
+            Skills
+          </span>
+        </div>
+
+        <div className="mx-auto mb-10 max-w-2xl text-center">
+          <p className="text-sm text-slate-400 sm:text-base">
+            A stack focused on shipping full stack, production-ready web and
+            blockchain applications.
           </p>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-2">
-          <div className="space-y-3 rounded-2xl border border-slate-800 bg-slate-900/70 p-4">
-            <div className="flex items-center gap-2 text-xs font-semibold text-slate-200">
-              <Code2 className="h-4 w-4 text-sky-400" />
-              Frontend
-            </div>
-            <div className="mt-2 flex flex-wrap gap-2">
-              {skills.frontend.map((skill) => (
-                <span key={skill} className={chipBase}>
-                  {skill}
-                </span>
-              ))}
-            </div>
-
-            <div className="mt-4 flex items-center gap-2 text-xs font-semibold text-slate-200">
-              <GitBranch className="h-4 w-4 text-emerald-400" />
-              Backend
-            </div>
-            <div className="mt-2 flex flex-wrap gap-2">
-              {skills.backend.map((skill) => (
-                <span key={skill} className={chipBase}>
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          <div className="space-y-3 rounded-2xl border border-slate-800 bg-slate-900/70 p-4">
-            <div className="flex items-center gap-2 text-xs font-semibold text-slate-200">
-              <Database className="h-4 w-4 text-indigo-400" />
-              Database
-            </div>
-            <div className="mt-2 flex flex-wrap gap-2">
-              {skills.database.map((skill) => (
-                <span key={skill} className={chipBase}>
-                  {skill}
-                </span>
-              ))}
-            </div>
-
-            <div className="mt-4 flex items-center gap-2 text-xs font-semibold text-slate-200">
-              <Boxes className="h-4 w-4 text-fuchsia-400" />
-              Blockchain
-            </div>
-            <div className="mt-2 flex flex-wrap gap-2">
-              {skills.blockchain.map((skill) => (
-                <span key={skill} className={chipBase}>
-                  {skill}
-                </span>
-              ))}
-            </div>
-
-            <div className="mt-4 flex items-center gap-2 text-xs font-semibold text-slate-200">
-              <Wrench className="h-4 w-4 text-sky-400" />
-              Tools
-            </div>
-            <div className="mt-2 flex flex-wrap gap-2">
-              {skills.tools.map((skill) => (
-                <span key={skill} className={chipBase}>
-                  {skill}
-                </span>
+        <div className="overflow-hidden rounded-[2rem] border border-slate-800 bg-slate-900/70 p-6 shadow-[0_25px_80px_-45px_rgba(15,23,42,0.9)]">
+          <div className="relative overflow-hidden">
+            <div className="pointer-events-none absolute inset-x-6 top-1/2 h-px bg-slate-800/80" />
+            <div className="marquee flex items-center gap-5 py-6">
+              {marqueeCards.map(({ name, Icon, accent }, index) => (
+                <div
+                  key={`${name}-${index}`}
+                  className="min-w-[11rem] shrink-0 rounded-[1.75rem] border border-slate-800 bg-slate-950/90 px-5 py-6 text-center shadow-sm shadow-slate-950/30 transition duration-300"
+                >
+                  <div className={`mx-auto flex h-14 w-14 items-center justify-center rounded-3xl bg-slate-900/95 ${accent}`}>
+                    <Icon className="h-7 w-7" />
+                  </div>
+                  <p className="mt-4 text-sm font-semibold tracking-tight text-slate-100">
+                    {name}
+                  </p>
+                </div>
               ))}
             </div>
           </div>

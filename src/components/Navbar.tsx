@@ -31,9 +31,6 @@ export function Navbar() {
           className="text-base font-semibold tracking-tight text-slate-100 md:text-lg"
         >
           Vanshika Dahaliya
-          <span className="ml-1 rounded-full bg-indigo-500/20 px-2 py-0.5 text-[10px] font-medium text-indigo-300">
-            Portfolio
-          </span>
         </Link>
 
         <div className="flex items-center gap-6">

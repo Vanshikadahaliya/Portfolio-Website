@@ -11,7 +11,7 @@ import {
 
 export function ContactSection() {
   const email = "vanshikadahaliya@gmail.com";
-  const phone = "+8801608797655";
+  const phone = "7827915992";
   const location = "Greater Noida, Uttar Pradesh, India";
 
   return (

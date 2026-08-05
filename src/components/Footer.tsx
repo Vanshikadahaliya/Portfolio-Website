@@ -21,7 +21,8 @@ export function Footer() {
             <span className="sr-only">GitHub</span>
           </a>
           <a
-            href="https://www.linkedin.com/in/vanshika-dahaliya-a9419a306"
+            href="https://www.linkedin.com/in/vanshika-dahaliya
+            "
             target="_blank"
             rel="noreferrer"
             className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-slate-700 bg-slate-900/70 text-slate-200 transition-colors hover:border-slate-500 hover:bg-slate-800"

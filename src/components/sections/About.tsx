@@ -12,8 +12,9 @@ export function AboutSection() {
             <h2 className="text-lg font-semibold tracking-tight text-slate-50 md:text-xl">
               About
             </h2>
+            <br></br>
             <p className="mt-1 text-sm text-slate-400 md:text-[15px]">
-              3rd year B.Tech Computer Science student crafting full stack and
+              4th year B.Tech Computer Science student crafting full stack and
               blockchain products with a strong problem-solving mindset.
             </p>
           </div>
@@ -21,7 +22,7 @@ export function AboutSection() {
 
         <div className="grid gap-4 md:grid-cols-[2fr,3fr]">
           <div className="space-y-3 text-sm text-slate-300">
-            <p>
+            {/* <p>
               I&apos;m Vanshika Dahaliya, a 3rd year B.Tech CSE student with a
               focus on building reliable web and blockchain applications. I
               enjoy taking ideas from zero to production and iterating quickly
@@ -31,14 +32,14 @@ export function AboutSection() {
               My current roadmap includes deepening my understanding of security
               through OWASP-BLT contributions and scaling my MERN and Solidity
               projects.
-            </p>
+            </p> */}
           </div>
 
           <div className="grid gap-3 text-sm text-slate-200 sm:grid-cols-2">
             <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-4">
               <div className="flex items-center gap-2 text-xs font-semibold text-slate-200">
                 <GraduationCap className="h-4 w-4 text-indigo-400" />
-                B.Tech CSE • 3rd Year
+                B.Tech CSE • 4th Year
               </div>
               <ul className="mt-3 space-y-1.5 text-xs text-slate-400">
                 <li>• Strong CS fundamentals and DSA</li>
@@ -53,9 +54,10 @@ export function AboutSection() {
                 Open Source & Security
               </div>
               <ul className="mt-3 space-y-1.5 text-xs text-slate-400">
-                <li>• Contributor at OWASP-BLT</li>
+                
                 <li>• Documentation and security-focused improvements</li>
                 <li>• Keen interest in secure web & blockchain systems</li>
+                <li>• Contributing to open source Projects and got PR Merged</li>
               </ul>
             </div>
 

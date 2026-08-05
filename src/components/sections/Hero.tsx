@@ -87,14 +87,10 @@ export function Hero() {
               </span>
             </h1>
             <p className="text-sm font-medium text-slate-300 sm:text-base">
-              Full Stack Developer&nbsp;|&nbsp;Blockchain Enthusiast&nbsp;|&nbsp;
-              Open Source Contributor
+              Full Stack Developer building scalable web applications with React, Next.js & Java.
             </p>
             <p className="max-w-xl text-sm text-slate-400 sm:text-base">
-              Building scalable web and blockchain solutions with real-world
-              impact. I love shipping production-ready MERN and blockchain
-              projects, contributing to security communities, and solving
-              challenging DSA problems.
+              I build responsive, scalable, and user-centric applications with modern web technologies. Currently exploring blockchain, contributing to open source, and sharpening my problem-solving skills through DSA.
             </p>
           </div>
 
